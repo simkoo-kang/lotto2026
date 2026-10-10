@@ -1,0 +1,107 @@
+
+
+# 1. 상위 lotto 프로젝트 폴더로 빠져나옵니다.
+cd ..
+
+# 2. 메인 프로젝트 관점에서 서브모듈(util)의 최종 연결 상태를 스테이징합니다.
+git add .
+
+# 3. 변경 사항을 최종 커밋(저장)합니다.
+git commit -m "Chore: Sync with pythonutil submodule"
+
+# 4. lotto2026 깃허브 저장소로 최종 전송(Push)합니다.
+git push origin main
+
+
+
+# 1. 다시 한번 확실하게 공용 util 폴더 내부로 진입합니다.
+cd util
+
+# 2. 내 컴퓨터에 복구된 파일들을 업로드할 준비를 합니다.
+git add .
+git commit -m "Feat: Add all shared utility files"
+
+# 3. 주소를 직접 명시하여 'main' 브랜치로 확실하게 업로드합니다.
+git push https://github.com/simkoo-kang/pythonutil.git main
+
+
+
+# 1. 파일들이 모두 살아있는 과거 시점(7be624a)에서 util 폴더만 통째로 꺼내옵니다.
+git checkout 7be624a -- util
+
+# 2. 이제 공용 서브모듈 폴더(pythonutil) 안으로 이동합니다.
+cd util
+
+# 3. 꺼내온 모든 파이썬 파일들을 공용 저장소 서버에 한 번에 올립니다.
+git add .
+git commit -m "Feat: Restore and upload all utility files from history"
+git push origin main
+
+# 4. 상위 lotto 프로젝트 폴더로 다시 빠져나옵니다.
+cd ..
+
+
+
+# 1. 혹시 남아있을지 모르는 기존 util 폴더와 찌꺼기 파일을 강제로 완전히 삭제합니다. (Windows용 명령)
+rmdir /s /q util
+
+# 2. .git 숨김 폴더 안에 잘못 기록된 서브모듈 설정 찌꺼기도 강제로 삭제합니다.
+rmdir /s /q .git\modules\util
+
+# 1. Git 기억(인덱스)에서 옛날 'util' 폴더 기록만 강제로 제거합니다. (실제 파일이 안 지워지니 안심하세요)
+git rm -r --cached util
+
+# 2. 이제 다시 서브모듈 추가 명령어를 실행합니다. (이번에는 정상 작동합니다)
+git submodule add https://github.com/simkoo-kang/pythonutil.git util
+
+# 3. 정상적으로 추가되었다면 상태를 깃허브에 기록하기 위해 커밋합니다.
+git commit -m "Chore: Add pythonutil submodule"
+
+git push origin main
+
+
+
+# 내 프로젝트 내부에 공용 util 저장소를 'util'이라는 하위 폴더로 가져옵니다.
+# 1. 깃허브 pythonutil에 README.md를 만드셨다면 서브모듈을 등록합니다.
+git submodule add https://github.com/simkoo-kang/pythonutil.git util
+
+# 2. 백업해둔 파이썬 파일들을 새로 생긴 util 폴더 안으로 복사해 넣습니다.
+
+# 3. 깃허브 lotto2026에 "이제 일반 폴더 대신 서브모듈을 쓴다"고 최종 업데이트(푸시)합니다.
+git add .
+git commit -m "Chore: Replace util folder with git submodule"
+git push
+
+
+# 1. 변경된 모든 파일을 스테이징 영역에 올립니다.
+git add .
+
+# 2. 어떤 내용을 수정했는지 기록(커밋)합니다.
+git commit -m "원하는 수정 내용 메시지 적기"
+
+# 3. 깃허브에 최종 업로드합니다. (처음에 -u를 설정해뒀기 때문에 이제는 git push만 치면 됩니다)
+git push
+
+
+# 1. 현재 잡혀있는 모든 Git 추적 캐시를 초기화합니다. (마지막 점 '.' 입력 필수)
+git rm -r --cached .
+
+# 2. .gitignore 규칙(venv, pycache 제외)을 다시 적용하여 필요한 소스코드만 스테이징합니다.
+git add .
+
+# 3. 정리된 상태를 깃허브에 최종 반영합니다.
+git commit -m "Fix: Clean up venv and pycache from tracking"
+git push
+
+
+# 1. 깃허브 주소를 원격 저장소(origin)로 등록합니다. (질문하신 내용 실행)
+git remote add origin https://github.com/simkoo-kang/lotto2026.git
+
+# 2. 내 컴퓨터의 파일들을 Git 스테이징 영역에 올립니다.
+git add .
+
+# 3. 올라간 파일들을 확정 지으며 커밋 메시지를 작성합니다.
+git commit -m "First commit to lotto2026"
+
+# 4. 내 컴퓨터의 코드를 깃허브(main 브랜치)로 전송합니다.
+git push -u origin main
