@@ -1,0 +1,18 @@
+
+# pip install lxml
+# pip install scikit-learn pandas numpy
+# pip install pandas
+# pip install jproperties
+# pip install pynput
+# pip install pyautogui
+# py -m pip install --upgrade pip
+
+# pip config set global.disable-pip-version-check true
+
+# py -m pip install munch
+# py -m pip install Pillow ---> from PIL import Image
+# py -m pip install --upgrade pip
+# py -3.14 -m pip uninstall tensorflow
+
+# py -3.12 -m venv .venv
+# py -m pip install numpy
