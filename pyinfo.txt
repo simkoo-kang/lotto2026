@@ -1,4 +1,29 @@
 
+
+# 1. 현재 잡혀있는 모든 Git 추적 캐시를 초기화합니다. (마지막 점 '.' 입력 필수)
+git rm -r --cached .
+
+# 2. .gitignore 규칙(venv, pycache 제외)을 다시 적용하여 필요한 소스코드만 스테이징합니다.
+git add .
+
+# 3. 정리된 상태를 깃허브에 최종 반영합니다.
+git commit -m "Fix: Clean up venv and pycache from tracking"
+git push
+
+
+# 1. 깃허브 주소를 원격 저장소(origin)로 등록합니다. (질문하신 내용 실행)
+git remote add origin https://github.com/simkoo-kang/lotto2026.git
+
+# 2. 내 컴퓨터의 파일들을 Git 스테이징 영역에 올립니다.
+git add .
+
+# 3. 올라간 파일들을 확정 지으며 커밋 메시지를 작성합니다.
+git commit -m "First commit to lotto2026"
+
+# 4. 내 컴퓨터의 코드를 깃허브(main 브랜치)로 전송합니다.
+git push -u origin main
+
+
 # pip install lxml
 # pip install scikit-learn pandas numpy
 # pip install pandas
